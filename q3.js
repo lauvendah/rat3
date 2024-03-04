@@ -1,17 +1,48 @@
+const questionContainer = document.getElementById('question-container');
+
+// Sample question data (replace with actual questions and exercises)
 const questions = [
     {
-    question: "which of the following is an example of an unclosed tag ?",
-    choices: ["A. <Br>", "B. <head>", "C. <div>", "D. <form>"],
-    correctAnswer: "B"
+        type: 'text',
+        text: 'What is the capital of France?',
+        answer: 'Paris'
     },
     {
-    question: "what property do we use to change color of a page background?",
-    choices: ["A. height", "B.background color ", "C. width", "D. padding"],
-    correctAnswer: "B"
-    },
-    {
-    question: "which tag defines the use of forms in html?",
-    choices: ["A. Form", "B. div", "C. head", "D. tail"],
-    correctAnswer: "A"
+        type: 'code',
+        text: 'Write a function that reverses a string.',
+        code: '' // user will input the code here
     }
-    ];
+];
+
+function renderQuestion(question) {
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('question');
+
+    if (question.type === 'text') {
+        const questionText = document.createElement('p');
+        questionText.classList.add('question-text');
+        questionText.textContent = question.text;
+
+        const answerInput = document.createElement('input');
+        answerInput.type = 'text';
+        answerInput.classList.add('answer-input');
+
+        questionElement.appendChild(questionText);
+        questionElement.appendChild(answerInput);
+    } else if (question.type === 'code') {
+        const questionText = document.createElement('p');
+        questionText.classList.add('question-text');
+        questionText.textContent = question.text;
+
+        const codeEditor = document.createElement('textarea');
+        codeEditor.classList.add('code-editor');
+        codeEditor.value = question.code; // pre-fill if needed
+
+        questionElement.appendChild(questionText);
+        questionElement.appendChild(codeEditor);
+    }
+
+    questionContainer.appendChild(questionElement);
+}
+
+questions.forEach(renderQuestion);

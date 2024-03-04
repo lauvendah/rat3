@@ -27,11 +27,8 @@ for(let i=0; i<10; i++){
     alert(i);
   }
 
-// do loop
-  let y=0;
-  do{
-    alert (y);
-    y++
-  }while(x<20);
+
+
+
  
 
