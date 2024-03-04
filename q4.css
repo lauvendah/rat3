@@ -1,0 +1,11 @@
+body {
+    font-family: sans-serif;
+}
+
+#question-container {
+    margin-bottom: 20px;
+}
+
+#feedback-container {
+    font-weight: bold;
+}
